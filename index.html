@@ -9,7 +9,11 @@
       content="My 2025 resolutions to improve fitness, relationships, and learning."
     />
     <meta name="author" content="Rikke Juliane" />
-    <link rel="icon" href="https://github.com/user-attachments/assets/9cf6b403-0925-458a-9446-37356acae488" type="image/png">
+    <link
+      rel="icon"
+      href="https://github.com/user-attachments/assets/9cf6b403-0925-458a-9446-37356acae488"
+      type="image/png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,6 +31,10 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       /* Header */
@@ -73,7 +81,7 @@
         border-radius: 50px;
         font-size: 1rem;
         transition: background 0.3s, transform 0.3s;
-        font-family: 'montserrat', sans-serif;
+        font-family: "montserrat", sans-serif;
         font-size: 15px;
         font-weight: 600;
       }
@@ -84,43 +92,185 @@
         transform: scale(1.1);
       }
 
+      header {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .shrink {
+        transform: translateY(-50px);
+        opacity: 0.7;
+      }
+
       /* Main Content */
-     .about-wrapper{
-      width: 1440px;
-      height: 800px;
-     }
+      .about-wrapper {
+        width: 1440px;
+        height: 800px;
+      }
 
-     .about-img{
-      width: 600px;
-      height: 600px;
-     }
+      .about-img {
+        width: 600px;
+        height: 600px;
+      }
 
-     h2 {
-      font-family: "Limelight", cursive;
-      font-size: 38px;
-      margin-bottom: 20px;
-      text-align: center;
-      padding-top: 50px;
-     }
+      h2 {
+        font-family: "Limelight", cursive;
+        font-size: 38px;
+        margin-bottom: 20px;
+        text-align: center;
+        padding-top: 50px;
+      }
 
-     .about-content{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 30px;
-     }
-     .about-text{
-      width: 600px;
-      
-     }
+      .about-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
+      .about-text {
+        width: 600px;
+        align-items: center;
+      }
 
-     p{
-      font-family: "Montserrat", sans-serif;
+      p {
+        font-family: "Montserrat", sans-serif;
         font-size: 18px;
         line-height: 1.5;
         padding-bottom: 10px;
-     }
+      }
 
+      h3 {
+        font-family: "Limelight", cursive;
+        font-size: 18px;
+      }
+
+      .hobby-icons-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .hobby-icons {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Books */
+      #book-section-wrapper {
+        width: 1440px;
+        height: 800px;
+      }
+
+      #book-section {
+        display: flex;
+        justify-content: center;
+      }
+
+      .book-tracker-wrapper {
+        width: 800px;
+      }
+
+      .progress-container {
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        background: #e0e0e0;
+        height: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .progress {
+        background: linear-gradient(to right, #ff8c00, #ff4500);
+        height: 100%;
+        width: 0%; /* Start at 0%, will update with JS */
+        border-radius: 15px;
+        transition: width 0.5s ease-in-out;
+      }
+
+      .tracker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px; /* Space between items */
+  max-height: 500px; /* Restrict height to fit 2 rows */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* Add styling for the scroll bar (optional, for a cleaner look) */
+.tracker::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tracker::-webkit-scrollbar-thumb {
+  background: #ff8c00; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.tracker::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+      .book {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .book img {
+        width: 90px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .book-details {
+        flex: 1;
+      }
+
+      .book-stars {
+        color: #ff8c00;
+      }
+
+      .book-comment {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        color: #555;
+      }
+
+      .add-book-form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .delete-book-button {
+        background: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      }
+
+      .delete-book-button:hover {
+        background: #ff3333;
+      }
+
+      /* .add-book-btn {
+
+      } */
 
     </style>
   </head>
@@ -129,7 +279,7 @@
       <section>
         <video autoplay loop muted playsinline class="hero-video">
           <source
-            src="https://github.com/user-attachments/assets/bfdefcea-a1f1-4870-aa60-a2e9556b868a"
+            src="https://github.com/user-attachments/assets/30776b7d-eb9f-4108-b262-46a3add1ab53"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -140,25 +290,261 @@
             <h1 class="h1">Small Steps, Big Impact</h1>
             <p class="hero-p">Because change begins with intention.</p>
           </div>
-          <a href="#journey" class="cta-button">Join My Journey</a>
+          <a href="#about-me" class="cta-button">Join My Journey</a>
         </div>
       </section>
     </header>
     <main>
       <section class="about-wrapper">
-        <h2>About me</h2>
+        <h2 id="about-me">About me</h2>
         <div class="about-content">
-          <img class="about-img" src="https://github.com/user-attachments/assets/66cb94e3-6bdf-414a-9625-ca56ae0fd54c" alt="A girl with brown hair and green eyes with a black maltipoo puppy">
+          <img
+            class="about-img"
+            src="https://github.com/user-attachments/assets/66cb94e3-6bdf-414a-9625-ca56ae0fd54c"
+            alt="A girl with brown hair and green eyes with a black maltipoo puppy"
+          />
           <div class="about-text">
-          <p><strong>Hi, my name is Rikke Juliane!</strong></p>
-          <p>I’m on a journey to embrace change, both in my personal life and through my professional growth. As someone who used to live with severe agoraphobia, I’ve learned to navigate life within the limits of my comfort zone, but I’m determined to keep pushing those boundaries.</p>
-          <p>In 2024, I took a significant step by starting my coding journey at Noroff University. Coding has become not just a skill, but a path to building something meaningful, whether it’s for personal projects, helping others, or shaping my future career. I’m working toward building my confidence, gaining more independence, and pursuing a life that’s more than just existing—it’s about truly thriving.</p>
-          <p>One of the greatest joys in my life is being a proud owner of Fie, my Maltipoo. She’s not just a pet; she’s my partner in this journey. Her playful energy and loyalty have been a constant source of comfort, reminding me that small moments of happiness are key to building confidence and resilience.</p>
+            <p>
+              <strong>Hi, my name is Rikke Juliane!</strong>
+            </p>
+            <p>
+              I’m on a journey to embrace change in my personal and professional
+              life. Overcoming severe agoraphobia taught me to navigate within
+              my comfort zone, but I’m determined to keep pushing past it.
+            </p>
+            <p>
+              In 2024, I began studying coding at Noroff University. Coding has
+              become more than just a skill—it’s my path to confidence,
+              independence, and thriving beyond just existing.
+            </p>
+            <p>
+              One of my greatest joys is Fie, my Maltipoo. Her playful energy
+              and loyalty bring comfort and remind me that small moments of
+              happiness build resilience.
+            </p>
+            <p>
+              Welcome to this page! Here, I’m sharing my New Year’s resolutions
+              for 2025—small steps for big impact.
+            </p>
+            <h3>My Hobbies:</h3>
+            <div class="hobby-icons-wrapper">
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/e64f0ff0-0d55-4e5c-b47f-3b13599abe5d"
+                alt="An icon of a person with a creative brain"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/d1f8a0b6-7594-44ec-8515-8f75624cfbb3"
+                alt="An icon of books"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/38e84f6c-db0d-4ad0-96ec-cff8eca579ed"
+                alt="An icon of a tennis racquet and ball"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/d03efcff-2def-47de-8643-7311f051fd8f"
+                alt="An icon of a coding symbol with angle brackets"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/b122d4ef-2589-4f70-9e0b-42e9a93afc6e"
+                alt="An icon of knitting yarn"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/5cad12ae-cf2d-4f65-860d-871df491cc0b"
+                alt="An icon of a joystick for gaming"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/74b6f23a-227a-4f52-948b-04c61deb721e"
+                alt="An icon of a paw"
+              />
+              <img
+                class="hobby-icons"
+                src="https://github.com/user-attachments/assets/fc105640-6387-4922-9f9b-e059d43cceeb"
+                alt="An icon of a TV"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+      <section id="book-section-wrapper">
+        <h2>Goal 1: Read 15 books</h2>
+        <div id="book-section">
+          <div class="book-tracker-wrapper">
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+              <p><span id="books-read">0</span>/15 books read</p>
+            </div>
+            <div class="tracker" id="tracker"></div>
+            <form class="add-book-form" id="addBookForm">
+              <h3>Add a Book</h3>
+              <input
+                type="text"
+                id="bookTitle"
+                placeholder="Book Title"
+                required
+              />
+              <input
+                type="text"
+                id="bookStars"
+                placeholder="Rating (e.g., ★★★★☆)"
+                required
+              />
+              <textarea
+                id="bookComment"
+                placeholder="Comment"
+                rows="3"
+              ></textarea>
+              <input
+                type="url"
+                id="bookCover"
+                placeholder="Book Cover URL"
+                required
+              />
+              <button class="add-book-btn" type="submit">Add Book</button>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
-    <footer></footer>
-    <script></script>
+    <footer>
+      <div>
+        Icons made by
+        <a
+          href="https://www.flaticon.com/authors/kiranshastry"
+          title="Kiranshastry"
+        >
+          Kiranshastry
+        </a>
+        ,
+        <a
+          href="https://www.flaticon.com/authors/mynamepong"
+          title="mynamepong"
+        >
+          mynamepong
+        </a>
+        ,
+        <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+        ,
+        <a href="https://www.flaticon.com/authors/mikan933" title="mikan933">
+          mikan933
+        </a>
+        ,
+        <a
+          href="https://www.flaticon.com/authors/imaginationlol"
+          title="imaginationlol"
+        >
+          imaginationlol
+        </a>
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+    </footer>
+    <script>
+      // Handle the header shrink effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          // Adjust the scroll position
+          header.classList.add("shrink");
+        } else {
+          header.classList.remove("shrink");
+        }
+      });
+
+      //Tracker Functionality
+      const tracker = document.getElementById("tracker");
+      const booksRead = document.getElementById("books-read");
+      const progress = document.querySelector(".progress");
+      const addBookForm = document.getElementById("addBookForm");
+      let bookCount = 0;
+
+      // Load books from localStorage
+      function loadBooks() {
+        const savedBooks = JSON.parse(localStorage.getItem("books")) || [];
+        savedBooks.forEach((book) => addBookToDOM(book));
+        bookCount = savedBooks.length;
+        updateProgress();
+      }
+
+      // Save books to localStorage
+      function saveBooks() {
+        const books = [];
+        tracker.querySelectorAll(".book").forEach((bookDiv) => {
+          const title = bookDiv.querySelector("h3").textContent;
+          const stars = bookDiv.querySelector(".book-stars").textContent;
+          const comment = bookDiv.querySelector(".book-comment").textContent;
+          const cover = bookDiv.querySelector("img").src;
+          books.push({ title, stars, comment, cover });
+        });
+        localStorage.setItem("books", JSON.stringify(books));
+      }
+
+      // Add a book to the DOM
+      function addBookToDOM({ title, stars, comment, cover }) {
+        const book = document.createElement("div");
+        book.classList.add("book");
+        book.innerHTML = `
+      <img src="${cover}" alt="${title} Cover">
+      <div class="book-details">
+        <h3>${title}</h3>
+        <p class="book-stars">${stars}</p>
+        <p class="book-comment">${comment}</p>
+        <button class="delete-book-button">Delete</button>
+      </div>
+    `;
+
+        // Add event listener to the delete button
+        book
+          .querySelector(".delete-book-button")
+          .addEventListener("click", () => {
+            book.remove();
+            bookCount--;
+            updateProgress();
+            saveBooks(); // Update localStorage after deletion
+          });
+
+        tracker.appendChild(book);
+      }
+
+      // Update progress bar and counter
+      function updateProgress() {
+        booksRead.textContent = bookCount;
+        const percentage = (bookCount / 15) * 100;
+        progress.style.width = percentage + "%";
+      }
+
+      // Handle form submission
+      addBookForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = document.getElementById("bookTitle").value;
+        const starsInput = document.getElementById("bookStars").value;
+        const comment = document.getElementById("bookComment").value;
+        const cover = document.getElementById("bookCover").value;
+
+        // Convert numeric rating to star icons
+        const starsCount = Math.min(5, Math.max(0, parseInt(starsInput, 10))); // Ensure between 0-5
+        const stars = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
+
+        const book = { title, stars, comment, cover };
+        addBookToDOM(book);
+        bookCount++;
+        updateProgress();
+        saveBooks(); // Save the updated list to localStorage
+        addBookForm.reset(); // Clear the form
+      });
+
+      // Initialize tracker
+      loadBooks();
+    </script>
   </body>
 </html>
