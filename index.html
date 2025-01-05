@@ -108,8 +108,8 @@
       }
 
       .about-img {
-        width: 600px;
-        height: 600px;
+        width: 500px;
+        height: 500px;
       }
 
       h2 {
@@ -157,7 +157,8 @@
       }
 
       /* Books */
-      #book-section-wrapper {
+      #book-section-wrapper,
+      #workout-section-wrapper {
         width: 1440px;
         height: 800px;
       }
@@ -193,30 +194,36 @@
       }
 
       .tracker {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 20px; /* Space between items */
-  max-height: 500px; /* Restrict height to fit 2 rows */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
-}
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 20px; /* Space between items */
+        max-height: 160px; /* Restrict height to fit 2 rows */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-/* Add styling for the scroll bar (optional, for a cleaner look) */
-.tracker::-webkit-scrollbar {
-  width: 10px;
-}
+      /* Add styling for the scroll bar (optional, for a cleaner look) */
+      .tracker::-webkit-scrollbar {
+        width: 10px;
+      }
 
-.tracker::-webkit-scrollbar-thumb {
-  background: #ff8c00; /* Scrollbar color */
-  border-radius: 10px;
-}
+      .tracker::-webkit-scrollbar-thumb {
+        background: #ff8c00; /* Scrollbar color */
+        border-radius: 10px;
+      }
 
-.tracker::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
+      .tracker::-webkit-scrollbar-track {
+        background: #e0e0e0;
+      }
+
+      /* Ensure book items fit properly within the grid */
+      .book {
+        min-width: 0; /* Prevent items from growing too large */
+      }
 
       .book {
         display: flex;
@@ -243,7 +250,7 @@
       }
 
       .book-comment {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 15px;
         color: #555;
       }
@@ -255,22 +262,152 @@
         gap: 10px;
       }
 
-      .delete-book-button {
-        background: #ff4d4d;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
+      .add-book-form input[type="text"],
+      .add-book-form input[type="url"],
+      .add-book-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Montserrat", sans-serif;
       }
 
-      .delete-book-button:hover {
+      .delete-book-button, 
+      .delete-list-button {
+        background: #ff4d4d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 5px;
+        cursor: pointer;
+      }
+
+      .delete-book-button:hover,
+      .delete-list-button:hover {
         background: #ff3333;
       }
 
-      /* .add-book-btn {
+      .add-book-btn {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .add-book-btn:hover {
+        background: #fff;
+      }
 
-      } */
+      /* Workout */
+      .workout-p {
+        display: flex;
+        justify-content: center;
+        width: 700px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .workout-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+      }
+
+      .workout-tracker {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); /* 10 columns */
+        gap: 5px; /* Space between cards */
+      }
+
+      .card {
+        width: 40px;
+        height: 40px;
+        background-color: #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .card.flipped {
+        color: #fff; /* Flipped text color */
+      }
+
+      .comment-section {
+        width: 445px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .comment-section h2 {
+        margin-bottom: 10px;
+      }
+
+      .comment-section textarea {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: none;
+      }
+
+      .comment-section button {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .comment-section button:hover {
+        background-color: #fff;
+      }
+
+      .comment-list {
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      .comment-list li {
+        padding: 5px 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+
+      .comment-item {
+  display: flex;
+  justify-content: space-between; /* Space between comment text and delete button */
+  align-items: center; /* Center the content vertically */
+  padding: 5px 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.comment-item span {
+  flex: 1; /* Allow the text to take up available space */
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
 
     </style>
   </head>
@@ -413,6 +550,27 @@
           </div>
         </div>
       </section>
+      <section id="workout-section-wrapper">
+        <h2>Goal 2: Workout 100 times in 2025</h2>
+        <p class="workout-p">
+          My goal for 2025 is to work out 100 times! That’s about two sessions a
+          week, giving me plenty of flexibility to rest when I need it. This
+          approach lets me stay consistent without being too hard on myself,
+          keeping workouts fun and manageable.
+        </p>
+        <div class="workout-content">
+          <div class="workout-tracker" id="workoutTracker"></div>
+          <div class="comment-section">
+            <h3>Add Comment</h3>
+            <textarea
+              id="commentInput"
+              placeholder="e.g., 1 - Played tennis"
+            ></textarea>
+            <button id="submitComment">Add Comment</button>
+            <ul class="comment-list" id="commentList"></ul>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
       <div>
@@ -545,6 +703,96 @@
 
       // Initialize tracker
       loadBooks();
+
+      // Workout tracker functionality
+      const workoutTracker = document.getElementById("workoutTracker");
+      const totalCards = 100; // 10x10 grid
+      let flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || {}; // Load flipped state
+
+      // Function to generate random gradient
+      function getRandomGradient() {
+        const colors = [
+          "rgba(173, 83, 137, 1)", // Purple
+          "rgba(93, 188, 210, 1)", // Blue
+          "rgba(244, 164, 196, 1)", // Pink
+          "rgba(138, 43, 226, 1)", // Deep purple
+          "rgba(65, 105, 225, 1)", // Royal blue
+        ];
+        const startColor = colors[Math.floor(Math.random() * colors.length)];
+        const endColor = colors[Math.floor(Math.random() * colors.length)];
+        return `linear-gradient(to bottom right, ${startColor}, ${endColor})`;
+      }
+
+      // Create cards dynamically
+      for (let i = 1; i <= totalCards; i++) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.dataset.index = i;
+
+        // Restore flipped state from localStorage
+        if (flippedCards[i]) {
+          card.classList.add("flipped");
+          card.style.background = flippedCards[i].color;
+          card.textContent = flippedCards[i].number;
+        }
+
+        // Add click event to flip card
+        card.addEventListener("click", () => {
+          if (!card.classList.contains("flipped")) {
+            const gradient = getRandomGradient(); // Generate a random gradient
+            card.classList.add("flipped");
+            card.style.background = gradient; // Apply the gradient
+            card.textContent = i; // Display the number
+            flippedCards[i] = { number: i, color: gradient }; // Save number and color
+          } else {
+            card.classList.remove("flipped");
+            card.style.background = ""; // Reset to default background
+            card.textContent = ""; // Reset the card
+            delete flippedCards[i]; // Remove from flippedCards
+          }
+
+          // Save flipped state to localStorage
+          localStorage.setItem("flippedCards", JSON.stringify(flippedCards));
+        });
+
+        workoutTracker.appendChild(card);
+      }
+
+      // Comments
+      const commentInput = document.getElementById("commentInput");
+      const commentList = document.getElementById("commentList");
+      const submitComment = document.getElementById("submitComment");
+      let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+      // Render comments
+      function renderComments() {
+  commentList.innerHTML = '';
+  comments.forEach((comment, index) => {
+    const li = document.createElement('li');
+    li.classList.add('comment-item'); // Add a class for styling
+
+    // Create a span for the comment text
+    const commentText = document.createElement('span');
+    commentText.textContent = comment;
+
+    // Create delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-list-button');
+    deleteButton.textContent = 'X';
+    deleteButton.addEventListener('click', () => {
+      comments.splice(index, 1); // Remove the comment from the array
+      localStorage.setItem('comments', JSON.stringify(comments)); // Update localStorage
+      renderComments(); // Re-render the comment list
+    });
+
+    li.appendChild(commentText); // Add the comment text to the list item
+    li.appendChild(deleteButton); // Add the delete button to the list item
+    commentList.appendChild(li);
+  });
+}
+
+      // Initialize page with stored comments
+      renderComments();
     </script>
   </body>
 </html>
