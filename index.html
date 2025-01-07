@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My 2025 resolutions</title>
-    <meta
-      name="description"
-      content="My 2025 resolutions to improve fitness, relationships, and learning."
-    />
-    <meta name="author" content="Rikke Juliane" />
-    <link
-      rel="icon"
-      href="https://github.com/user-attachments/assets/9cf6b403-0925-458a-9446-37356acae488"
-      type="image/png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Limelight&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My 2025 resolutions</title>
+        <meta name="description" content="My 2025 resolutions to improve fitness, relationships, and learning.">
+        <meta name="author" content="Rikke Juliane">
+        <link rel="icon" href="https://github.com/user-attachments/assets/9cf6b403-0925-458a-9446-37356acae488" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
       * {
         margin: 0;
         padding: 0;
@@ -35,6 +22,10 @@
 
       html {
         scroll-behavior: smooth;
+      }
+
+      body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
       }
 
       /* Header */
@@ -158,7 +149,8 @@
 
       /* Books */
       #book-section-wrapper,
-      #workout-section-wrapper {
+      #workout-section-wrapper,
+      #nospend-section-wrapper {
         width: 1440px;
         height: 800px;
       }
@@ -272,19 +264,20 @@
         font-family: "Montserrat", sans-serif;
       }
 
-      .delete-book-button, 
+      .delete-book-button,
       .delete-list-button {
         background: #ff4d4d;
         color: #fff;
         border: none;
         border-radius: 5px;
-        padding: 5px 5px;
+        padding: 5px 10px; /* Ensure consistent padding */
         cursor: pointer;
+        transition: background-color 0.3s ease; /* Smooth hover transition */
       }
 
       .delete-book-button:hover,
       .delete-list-button:hover {
-        background: #ff3333;
+        background: #ff3333; /* Same hover color */
       }
 
       .add-book-btn {
@@ -306,6 +299,7 @@
         width: 700px;
         text-align: center;
         margin: 0 auto;
+        padding-bottom: 20px;
       }
       .workout-content {
         display: flex;
@@ -371,11 +365,15 @@
         transition: background-color 0.3s ease-in-out;
       }
 
-      .comment-section button:hover {
+      #submitComment:hover {
         background-color: #fff;
       }
 
       .comment-list {
+        max-height: calc(
+          7 * 40px
+        ); /* Each list item height is roughly 40px (adjust if needed) */
+        overflow-y: auto;
         margin-top: 20px;
         padding: 0;
         list-style: none;
@@ -392,222 +390,271 @@
       }
 
       .comment-item {
-  display: flex;
-  justify-content: space-between; /* Space between comment text and delete button */
-  align-items: center; /* Center the content vertically */
-  padding: 5px 10px;
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
+        display: flex;
+        justify-content: space-between; /* Space between comment text and delete button */
+        align-items: center; /* Center the content vertically */
+        padding: 5px 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
 
-.comment-item span {
-  flex: 1; /* Allow the text to take up available space */
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  color: #333;
-}
+      .comment-item span {
+        flex: 1; /* Allow the text to take up available space */
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        color: #333;
+      }
 
-    </style>
-  </head>
-  <body>
-    <header>
-      <section>
-        <video autoplay loop muted playsinline class="hero-video">
-          <source
-            src="https://github.com/user-attachments/assets/30776b7d-eb9f-4108-b262-46a3add1ab53"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1 class="h1">2025 Resolutions:</h1>
-            <h1 class="h1">Small Steps, Big Impact</h1>
-            <p class="hero-p">Because change begins with intention.</p>
-          </div>
-          <a href="#about-me" class="cta-button">Join My Journey</a>
-        </div>
-      </section>
-    </header>
-    <main>
-      <section class="about-wrapper">
-        <h2 id="about-me">About me</h2>
-        <div class="about-content">
-          <img
-            class="about-img"
-            src="https://github.com/user-attachments/assets/66cb94e3-6bdf-414a-9625-ca56ae0fd54c"
-            alt="A girl with brown hair and green eyes with a black maltipoo puppy"
-          />
-          <div class="about-text">
-            <p>
-              <strong>Hi, my name is Rikke Juliane!</strong>
-            </p>
-            <p>
-              I’m on a journey to embrace change in my personal and professional
+      /* No spend */
+      .tracker-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .arrows {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .arrow {
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.2s;
+      }
+
+      .arrow:hover {
+        transform: scale(1.2);
+      }
+
+      .counter {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .jar {
+        position: relative;
+        width: 150px;
+        height: 300px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        background: #e0e0e0;
+        overflow: hidden;
+      }
+
+      .fill {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: linear-gradient(
+          to top,
+          #ffa07a,
+          #f08080,
+          #ba55d3,
+          #7b68ee,
+          #32cd32
+        );
+        transition: height 0.5s ease-in-out;
+      }
+
+      .message {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #333;
+        display: flex;
+        justify-content: center;
+      }
+
+      .reset {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #ff4d4d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .reset:hover {
+        background-color: #ff3333;
+      }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section>
+                <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    class="hero-video"
+                >
+                    <source src="https://github.com/user-attachments/assets/30776b7d-eb9f-4108-b262-46a3add1ab53" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="h1">2025 Resolutions:</h1>
+                        <h1 class="h1">Small Steps, Big Impact</h1>
+                        <p class="hero-p">Because change begins with intention.</p>
+                    </div>
+                    <a href="#about-me" class="cta-button">Join My Journey</a>
+                </div>
+            </section>
+        </header>
+        <main>
+            <section class="about-wrapper">
+                <h2 id="about-me">About me</h2>
+                <div class="about-content">
+                    <img class="about-img" src="https://github.com/user-attachments/assets/66cb94e3-6bdf-414a-9625-ca56ae0fd54c" alt="A girl with brown hair and green eyes with a black maltipoo puppy">
+                    <div class="about-text">
+                        <p>
+                            <strong>Hi, my name is Rikke Juliane!</strong>
+                        </p>
+                        <p>
+                            I’m on a journey to embrace change in my personal and professional
               life. Overcoming severe agoraphobia taught me to navigate within
               my comfort zone, but I’m determined to keep pushing past it.
-            </p>
-            <p>
-              In 2024, I began studying coding at Noroff University. Coding has
+                        </p>
+                        <p>
+                            In 2024, I began studying coding at Noroff University. Coding has
               become more than just a skill—it’s my path to confidence,
               independence, and thriving beyond just existing.
-            </p>
-            <p>
-              One of my greatest joys is Fie, my Maltipoo. Her playful energy
+                        </p>
+                        <p>
+                            One of my greatest joys is Fie, my Maltipoo. Her playful energy
               and loyalty bring comfort and remind me that small moments of
               happiness build resilience.
-            </p>
-            <p>
-              Welcome to this page! Here, I’m sharing my New Year’s resolutions
+                        </p>
+                        <p>
+                            Welcome to this page! Here, I’m sharing my New Year’s resolutions
               for 2025—small steps for big impact.
-            </p>
-            <h3>My Hobbies:</h3>
-            <div class="hobby-icons-wrapper">
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/e64f0ff0-0d55-4e5c-b47f-3b13599abe5d"
-                alt="An icon of a person with a creative brain"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/d1f8a0b6-7594-44ec-8515-8f75624cfbb3"
-                alt="An icon of books"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/38e84f6c-db0d-4ad0-96ec-cff8eca579ed"
-                alt="An icon of a tennis racquet and ball"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/d03efcff-2def-47de-8643-7311f051fd8f"
-                alt="An icon of a coding symbol with angle brackets"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/b122d4ef-2589-4f70-9e0b-42e9a93afc6e"
-                alt="An icon of knitting yarn"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/5cad12ae-cf2d-4f65-860d-871df491cc0b"
-                alt="An icon of a joystick for gaming"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/74b6f23a-227a-4f52-948b-04c61deb721e"
-                alt="An icon of a paw"
-              />
-              <img
-                class="hobby-icons"
-                src="https://github.com/user-attachments/assets/fc105640-6387-4922-9f9b-e059d43cceeb"
-                alt="An icon of a TV"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="book-section-wrapper">
-        <h2>Goal 1: Read 15 books</h2>
-        <div id="book-section">
-          <div class="book-tracker-wrapper">
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress"></div>
-              </div>
-              <p><span id="books-read">0</span>/15 books read</p>
-            </div>
-            <div class="tracker" id="tracker"></div>
-            <form class="add-book-form" id="addBookForm">
-              <h3>Add a Book</h3>
-              <input
-                type="text"
-                id="bookTitle"
-                placeholder="Book Title"
-                required
-              />
-              <input
-                type="text"
-                id="bookStars"
-                placeholder="Rating (e.g., ★★★★☆)"
-                required
-              />
-              <textarea
-                id="bookComment"
-                placeholder="Comment"
-                rows="3"
-              ></textarea>
-              <input
-                type="url"
-                id="bookCover"
-                placeholder="Book Cover URL"
-                required
-              />
-              <button class="add-book-btn" type="submit">Add Book</button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <section id="workout-section-wrapper">
-        <h2>Goal 2: Workout 100 times in 2025</h2>
-        <p class="workout-p">
-          My goal for 2025 is to work out 100 times! That’s about two sessions a
+                        </p>
+                        <h3>My Hobbies:</h3>
+                        <div class="hobby-icons-wrapper">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/e64f0ff0-0d55-4e5c-b47f-3b13599abe5d" alt="An icon of a person with a creative brain">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/d1f8a0b6-7594-44ec-8515-8f75624cfbb3" alt="An icon of books">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/38e84f6c-db0d-4ad0-96ec-cff8eca579ed" alt="An icon of a tennis racquet and ball">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/d03efcff-2def-47de-8643-7311f051fd8f" alt="An icon of a coding symbol with angle brackets">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/b122d4ef-2589-4f70-9e0b-42e9a93afc6e" alt="An icon of knitting yarn">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/5cad12ae-cf2d-4f65-860d-871df491cc0b" alt="An icon of a joystick for gaming">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/74b6f23a-227a-4f52-948b-04c61deb721e" alt="An icon of a paw">
+                            <img class="hobby-icons" src="https://github.com/user-attachments/assets/fc105640-6387-4922-9f9b-e059d43cceeb" alt="An icon of a TV">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="book-section-wrapper">
+                <h2>Goal 1: Read 15 books</h2>
+                <div id="book-section">
+                    <div class="book-tracker-wrapper">
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                            <p>
+                                <span id="books-read">0</span>
+                                /15 books read
+                            </p>
+                        </div>
+                        <div class="tracker" id="tracker"></div>
+                        <form class="add-book-form" id="addBookForm">
+                            <h3>Add a Book</h3>
+                            <input
+                                type="text"
+                                id="bookTitle"
+                                placeholder="Book Title"
+                                required
+                            >
+                            <input
+                                type="text"
+                                id="bookStars"
+                                placeholder="Rating (e.g., ★★★★☆)"
+                                required
+                            >
+                            <textarea id="bookComment" placeholder="Comment" rows="3"></textarea>
+                            <input
+                                type="url"
+                                id="bookCover"
+                                placeholder="Book Cover URL"
+                                required
+                            >
+                            <button class="add-book-btn" type="submit">Add Book</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="workout-section-wrapper">
+                <h2>Goal 2: Workout 100 times in 2025</h2>
+                <p class="workout-p">
+                    My goal for 2025 is to work out 100 times! That’s about two sessions a
           week, giving me plenty of flexibility to rest when I need it. This
           approach lets me stay consistent without being too hard on myself,
           keeping workouts fun and manageable.
-        </p>
-        <div class="workout-content">
-          <div class="workout-tracker" id="workoutTracker"></div>
-          <div class="comment-section">
-            <h3>Add Comment</h3>
-            <textarea
-              id="commentInput"
-              placeholder="e.g., 1 - Played tennis"
-            ></textarea>
-            <button id="submitComment">Add Comment</button>
-            <ul class="comment-list" id="commentList"></ul>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div>
-        Icons made by
-        <a
-          href="https://www.flaticon.com/authors/kiranshastry"
-          title="Kiranshastry"
-        >
-          Kiranshastry
-        </a>
-        ,
-        <a
-          href="https://www.flaticon.com/authors/mynamepong"
-          title="mynamepong"
-        >
-          mynamepong
-        </a>
-        ,
-        <a href="https://www.freepik.com" title="Freepik">Freepik</a>
-        ,
-        <a href="https://www.flaticon.com/authors/mikan933" title="mikan933">
-          mikan933
-        </a>
-        ,
-        <a
-          href="https://www.flaticon.com/authors/imaginationlol"
-          title="imaginationlol"
-        >
-          imaginationlol
-        </a>
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-      </div>
-    </footer>
-    <script>
+                </p>
+                <div class="workout-content">
+                    <div class="workout-tracker" id="workoutTracker"></div>
+                    <div class="comment-section">
+                        <h3>Add Comment</h3>
+                        <textarea id="commentInput" placeholder="e.g., 1 - Played tennis"></textarea>
+                        <button id="submitComment">Add Comment</button>
+                        <ul class="comment-list" id="commentList"></ul>
+                    </div>
+                </div>
+            </section>
+            <section id="nospend-section-wrapper">
+                <h2>Goal 3: Spend less money</h2>
+                <div class="tracker-container">
+                    <div class="arrows">
+                        <div class="arrow" id="upArrow">&#8593;</div>
+                        <div class="counter" id="counter">0/365</div>
+                        <div class="arrow" id="downArrow">&#8595;</div>
+                    </div>
+                    <div class="jar">
+                        <div class="fill" id="fill"></div>
+                    </div>
+                </div>
+                <div class="message" id="message"></div>
+                <button class="reset" id="resetButton">Reset</button>
+            </section>
+        </main>
+        <footer>
+            <div>
+                Icons made by
+                <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">
+                    Kiranshastry
+                </a>
+                ,
+                <a href="https://www.flaticon.com/authors/mynamepong" title="mynamepong">
+                    mynamepong
+                </a>
+                ,
+                <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                ,
+                <a href="https://www.flaticon.com/authors/mikan933" title="mikan933">
+                    mikan933
+                </a>
+                ,
+                <a href="https://www.flaticon.com/authors/imaginationlol" title="imaginationlol">
+                    imaginationlol
+                </a>
+                from
+                <a href="https://www.flaticon.com/" title="Flaticon">
+                    www.flaticon.com
+                </a>
+            </div>
+        </footer>
+        <script>
       // Handle the header shrink effect
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
@@ -764,35 +811,108 @@
       const submitComment = document.getElementById("submitComment");
       let comments = JSON.parse(localStorage.getItem("comments")) || [];
 
-      // Render comments
+      // Function to render comments
       function renderComments() {
-  commentList.innerHTML = '';
-  comments.forEach((comment, index) => {
-    const li = document.createElement('li');
-    li.classList.add('comment-item'); // Add a class for styling
+        commentList.innerHTML = ""; // Clear the list first
+        comments.forEach((comment, index) => {
+          const li = document.createElement("li");
+          li.classList.add("comment-item"); // Add a class for styling
 
-    // Create a span for the comment text
-    const commentText = document.createElement('span');
-    commentText.textContent = comment;
+          // Create a span for the comment text
+          const commentText = document.createElement("span");
+          commentText.textContent = comment;
 
-    // Create delete button
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete-list-button');
-    deleteButton.textContent = 'X';
-    deleteButton.addEventListener('click', () => {
-      comments.splice(index, 1); // Remove the comment from the array
-      localStorage.setItem('comments', JSON.stringify(comments)); // Update localStorage
-      renderComments(); // Re-render the comment list
-    });
+          // Create delete button
+          const deleteButton = document.createElement("button");
+          deleteButton.classList.add("delete-list-button");
+          deleteButton.textContent = "X";
+          deleteButton.setAttribute("aria-label", "Delete Comment");
+          deleteButton.addEventListener("click", () => {
+            // Remove the comment from the array
+            comments.splice(index, 1);
 
-    li.appendChild(commentText); // Add the comment text to the list item
-    li.appendChild(deleteButton); // Add the delete button to the list item
-    commentList.appendChild(li);
-  });
-}
+            // Update localStorage
+            localStorage.setItem("comments", JSON.stringify(comments));
 
-      // Initialize page with stored comments
+            // Re-render the comments list
+            renderComments();
+          });
+
+          li.appendChild(commentText); // Add the comment text to the list item
+          li.appendChild(deleteButton); // Add the delete button to the list item
+          commentList.appendChild(li);
+        });
+      }
+
+      // Event listener for adding comments
+      submitComment.addEventListener("click", () => {
+        const comment = commentInput.value.trim(); // Get the input value and trim whitespace
+        if (comment) {
+          comments.push(comment); // Add comment to the array
+          localStorage.setItem("comments", JSON.stringify(comments)); // Save updated comments to localStorage
+          commentInput.value = ""; // Clear the input field
+          renderComments(); // Re-render the comment list
+        }
+      });
+
+      // Initial rendering of comments from localStorage
       renderComments();
-    </script>
-  </body>
+
+      // No spend tracker
+      const upArrow = document.getElementById("upArrow");
+      const downArrow = document.getElementById("downArrow");
+      const counter = document.getElementById("counter");
+      const fill = document.getElementById("fill");
+      const message = document.getElementById("message");
+      const resetButton = document.getElementById("resetButton");
+
+      let count = parseInt(localStorage.getItem("noSpendCount")) || 0;
+      updateUI();
+
+      // Increase the count
+      upArrow.addEventListener("click", () => {
+        if (count < 365) {
+          count++;
+          saveAndUpdate();
+        }
+      });
+
+      // Decrease the count
+      downArrow.addEventListener("click", () => {
+        if (count > 0) {
+          count--;
+          saveAndUpdate();
+        }
+      });
+
+      // Reset the tracker
+      resetButton.addEventListener("click", () => {
+        count = 0;
+        saveAndUpdate();
+      });
+
+      // Save to localStorage and update the UI
+      function saveAndUpdate() {
+        localStorage.setItem("noSpendCount", count);
+        updateUI();
+      }
+
+      // Update the UI
+      function updateUI() {
+        counter.textContent = `${count}/365`;
+        const fillHeight = (count / 365) * 100;
+        fill.style.height = `${fillHeight}%`;
+        updateMessage();
+      }
+
+      // Update motivational message
+      function updateMessage() {
+        if (count % 50 === 0 && count !== 0) {
+          message.textContent = `Amazing! You've reached ${count} no-spend days! 🎉`;
+        } else {
+          message.textContent = "";
+        }
+      }
+        </script>
+    </body>
 </html>
