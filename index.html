@@ -438,6 +438,7 @@
       .counter {
         font-size: 3rem;
         font-weight: bold;
+        font-family: 'limelight', cursive;
       }
       .jar-lid1,
       .jar-lid2 {
@@ -481,20 +482,179 @@
         justify-content: center;
       }
 
-      .reset {
-        margin-top: 10px;
-        padding: 5px 10px;
-        background-color: #ff4d4d;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+      .moodtracker-wrapper {
+        width: 1440px;
+        height: 800px;
       }
 
-      .reset:hover {
-        background-color: #ff3333;
-      }
+      .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header button {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .month-dropdown {
+            position: relative;
+        }
+
+        .month-dropdown button {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .month-dropdown button:after {
+            content: " ▼";
+            font-size: 1rem;
+        }
+
+        .month-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .month-list.active {
+            display: block;
+        }
+
+        .month-list button {
+            display: block;
+            width: 100%;
+            padding: 5px 10px;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .month-list button:hover {
+            background: #f0f0f0;
+        }
+
+        /* Calendar Grid */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .day {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .day .date {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .day .emoji {
+            font-size: 1.5rem;
+        }
+
+        /* Emoji Popup */
+        .emoji-popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 20;
+        }
+
+        .emoji-popup.active {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .emoji-popup span {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .emoji-popup span:hover {
+            transform: scale(1.2);
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 15;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Yearly Mood Summary */
+        .summary {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .summary-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100px;
+            position: relative;
+        }
+
+        .summary-bar div {
+            height: 100%;
+            border-radius: 5px;
+        }
+
         </style>
     </head>
     <body>
@@ -638,6 +798,34 @@
                 </div>
               </div>
                 <div class="message" id="message"></div>
+            </section>
+            <section class="moodtracker-wrapper">
+              <div class="calendar-header">
+                <button id="prevMonth">⬅️</button>
+                <div class="month-dropdown">
+                    <button id="currentMonth">January</button>
+                    <div class="month-list" id="monthList">
+                        <!-- Month buttons -->
+                    </div>
+                </div>
+                <button id="nextMonth">➡️</button>
+            </div>
+        
+            <div class="calendar" id="calendar"></div>
+        
+            <div class="summary">
+                <!-- Mood summary bars -->
+            </div>
+        
+            <div class="emoji-popup" id="emojiPopup">
+                <span>😊</span>
+                <span>😁</span>
+                <span>🤪</span>
+                <span>😴</span>
+                <span>😢</span>
+                <span>😡</span>
+            </div>
+            <div class="overlay" id="overlay"></div>
             </section>
         </main>
         <footer>
@@ -919,6 +1107,158 @@
           message.textContent = "";
         }
       }
+
+      // Mood tracker
+      const calendar = document.getElementById("calendar");
+        const currentMonthBtn = document.getElementById("currentMonth");
+        const monthList = document.getElementById("monthList");
+        const prevMonthBtn = document.getElementById("prevMonth");
+        const nextMonthBtn = document.getElementById("nextMonth");
+        const emojiPopup = document.getElementById("emojiPopup");
+        const overlay = document.getElementById("overlay");
+        const summary = document.querySelector(".summary");
+
+        let currentMonth = new Date().getMonth();
+        let selectedYear = 2025;
+        const moods = JSON.parse(localStorage.getItem("moods")) || {};
+
+        // Month names
+        const monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+
+        // Emojis
+        const emojis = ["😊", "😁", "🤪", "😴", "😢", "😡"];
+
+        // Create month dropdown
+        monthNames.forEach((month, index) => {
+            const button = document.createElement("button");
+            button.textContent = month;
+            button.addEventListener("click", () => {
+                currentMonth = index;
+                updateCalendar();
+                monthList.classList.remove("active");
+            });
+            monthList.appendChild(button);
+        });
+
+        // Navigation
+        prevMonthBtn.addEventListener("click", () => {
+            if (currentMonth > 0) currentMonth--;
+            else currentMonth = 11;
+            updateCalendar();
+        });
+
+        nextMonthBtn.addEventListener("click", () => {
+            if (currentMonth < 11) currentMonth++;
+            else currentMonth = 0;
+            updateCalendar();
+        });
+
+        currentMonthBtn.addEventListener("click", () => {
+            monthList.classList.toggle("active");
+        });
+
+        // Overlay click
+        overlay.addEventListener("click", () => {
+            emojiPopup.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+
+        // Update calendar
+        function updateCalendar() {
+            calendar.innerHTML = "";
+            currentMonthBtn.textContent = monthNames[currentMonth];
+            const daysInMonth = new Date(selectedYear, currentMonth + 1, 0).getDate();
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement("div");
+                cell.classList.add("day");
+
+                const date = document.createElement("div");
+                date.classList.add("date");
+                date.textContent = day;
+
+                const emoji = document.createElement("div");
+                emoji.classList.add("emoji");
+                emoji.textContent = moods[`${selectedYear}-${currentMonth}-${day}`] || "";
+
+                cell.appendChild(date);
+                cell.appendChild(emoji);
+
+                // Emoji picker popup
+                cell.addEventListener("click", () => {
+                    emojiPopup.classList.add("active");
+                    overlay.classList.add("active");
+
+                    emojiPopup.querySelectorAll("span").forEach((emojiSpan) => {
+                        emojiSpan.onclick = () => {
+                            moods[`${selectedYear}-${currentMonth}-${day}`] = emojiSpan.textContent;
+                            localStorage.setItem("moods", JSON.stringify(moods));
+                            updateCalendar();
+                            emojiPopup.classList.remove("active");
+                            overlay.classList.remove("active");
+                        };
+                    });
+                });
+
+                calendar.appendChild(cell);
+            }
+
+            updateSummary();
+        }
+
+        // Update mood summary
+        function updateSummary() {
+            summary.innerHTML = "";
+            const moodCounts = emojis.reduce((acc, emoji) => {
+                acc[emoji] = Object.values(moods).filter((mood) => mood === emoji).length;
+                return acc;
+            }, {});
+
+            const totalDays = Object.values(moods).length;
+
+            emojis.forEach((emoji) => {
+                const percentage = totalDays ? Math.round((moodCounts[emoji] / totalDays) * 100) : 0;
+
+                const summaryItem = document.createElement("div");
+                summaryItem.classList.add("summary-item");
+
+                const emojiSpan = document.createElement("span");
+                emojiSpan.textContent = emoji;
+
+                const bar = document.createElement("div");
+                bar.classList.add("summary-bar");
+
+                const fill = document.createElement("div");
+                fill.style.width = `${percentage}%`;
+                fill.style.background = "#4caf50";
+
+                bar.appendChild(fill);
+                summaryItem.appendChild(emojiSpan);
+                summaryItem.appendChild(bar);
+
+                const percentageSpan = document.createElement("span");
+                percentageSpan.textContent = `${percentage}%`;
+
+                summaryItem.appendChild(percentageSpan);
+                summary.appendChild(summaryItem);
+            });
+        }
+
+        // Initial render
+        updateCalendar();
         </script>
     </body>
 </html>
