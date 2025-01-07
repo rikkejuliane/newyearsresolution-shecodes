@@ -293,7 +293,8 @@
       }
 
       /* Workout */
-      .workout-p {
+      .workout-p, 
+      .nospend-p {
         display: flex;
         justify-content: center;
         width: 700px;
@@ -412,7 +413,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 100px;
+        margin-top: 10px;
       }
 
       .arrows {
@@ -423,7 +425,7 @@
       }
 
       .arrow {
-        font-size: 2rem;
+        font-size: 3rem;
         cursor: pointer;
         user-select: none;
         transition: transform 0.2s;
@@ -434,17 +436,23 @@
       }
 
       .counter {
-        font-size: 1.5rem;
+        font-size: 3rem;
         font-weight: bold;
+      }
+      .jar-lid1,
+      .jar-lid2 {
+        width: 300px; /* Width of the jar top squares */
+    height: 20px; /* Height of the jar top squares */
+    border-radius: 10px;
+    border: 2px solid #333;
       }
 
       .jar {
         position: relative;
-        width: 150px;
-        height: 300px;
+        width: 300px;
+        height: 400px;
         border: 2px solid #333;
         border-radius: 10px;
-        background: #e0e0e0;
         overflow: hidden;
       }
 
@@ -614,18 +622,22 @@
             </section>
             <section id="nospend-section-wrapper">
                 <h2>Goal 3: Spend less money</h2>
+                <p class="nospend-p">This year, I want to focus on spending less and appreciating the value of what I already have. Instead of buying everything I want right away, I want to embrace the excitement of wishing for things, saving up, and making thoughtful decisions. I hope to build better habits and find joy in simplicity.</p>
                 <div class="tracker-container">
                     <div class="arrows">
                         <div class="arrow" id="upArrow">&#8593;</div>
                         <div class="counter" id="counter">0/365</div>
                         <div class="arrow" id="downArrow">&#8595;</div>
                     </div>
+                    <div>
+                    <div class="jar-lid1"></div>
+                      <div class="jar-lid2"></div>
                     <div class="jar">
                         <div class="fill" id="fill"></div>
                     </div>
                 </div>
+              </div>
                 <div class="message" id="message"></div>
-                <button class="reset" id="resetButton">Reset</button>
             </section>
         </main>
         <footer>
@@ -864,7 +876,6 @@
       const counter = document.getElementById("counter");
       const fill = document.getElementById("fill");
       const message = document.getElementById("message");
-      const resetButton = document.getElementById("resetButton");
 
       let count = parseInt(localStorage.getItem("noSpendCount")) || 0;
       updateUI();
@@ -885,11 +896,6 @@
         }
       });
 
-      // Reset the tracker
-      resetButton.addEventListener("click", () => {
-        count = 0;
-        saveAndUpdate();
-      });
 
       // Save to localStorage and update the UI
       function saveAndUpdate() {
