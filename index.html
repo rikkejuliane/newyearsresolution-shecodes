@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My 2025 resolutions</title>
-        <meta name="description" content="My 2025 resolutions to improve fitness, relationships, and learning.">
+        <meta name="description" content="My 2025 resolutions to improve reading, fitness, spending and mood-tracking.">
         <meta name="author" content="Rikke Juliane">
         <link rel="icon" href="https://github.com/user-attachments/assets/9cf6b403-0925-458a-9446-37356acae488" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
       }
 
       body {
-        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-x: hidden;
       }
 
       /* Header */
@@ -180,17 +180,17 @@
       .progress {
         background: linear-gradient(to right, #ff8c00, #ff4500);
         height: 100%;
-        width: 0%; /* Start at 0%, will update with JS */
+        width: 0%;
         border-radius: 15px;
         transition: width 0.5s ease-in-out;
       }
 
       .tracker {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
-        gap: 20px; /* Space between items */
-        max-height: 160px; /* Restrict height to fit 2 rows */
-        overflow-y: auto; /* Enable vertical scrolling */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-height: 160px;
+        overflow-y: auto;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -198,13 +198,12 @@
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       }
 
-      /* Add styling for the scroll bar (optional, for a cleaner look) */
       .tracker::-webkit-scrollbar {
         width: 10px;
       }
 
       .tracker::-webkit-scrollbar-thumb {
-        background: #ff8c00; /* Scrollbar color */
+        background: #ff8c00;
         border-radius: 10px;
       }
 
@@ -212,9 +211,8 @@
         background: #e0e0e0;
       }
 
-      /* Ensure book items fit properly within the grid */
       .book {
-        min-width: 0; /* Prevent items from growing too large */
+        min-width: 0;
       }
 
       .book {
@@ -270,14 +268,14 @@
         color: #fff;
         border: none;
         border-radius: 5px;
-        padding: 5px 10px; /* Ensure consistent padding */
+        padding: 5px 10px;
         cursor: pointer;
-        transition: background-color 0.3s ease; /* Smooth hover transition */
+        transition: background-color 0.3s ease;
       }
 
       .delete-book-button:hover,
       .delete-list-button:hover {
-        background: #ff3333; /* Same hover color */
+        background: #ff3333;
       }
 
       .add-book-btn {
@@ -312,8 +310,8 @@
 
       .workout-tracker {
         display: grid;
-        grid-template-columns: repeat(10, 1fr); /* 10 columns */
-        gap: 5px; /* Space between cards */
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
       }
 
       .card {
@@ -333,7 +331,7 @@
       }
 
       .card.flipped {
-        color: #fff; /* Flipped text color */
+        color: #fff;
       }
 
       .comment-section {
@@ -374,7 +372,7 @@
       .comment-list {
         max-height: calc(
           7 * 40px
-        ); /* Each list item height is roughly 40px (adjust if needed) */
+        );
         overflow-y: auto;
         margin-top: 20px;
         padding: 0;
@@ -393,8 +391,8 @@
 
       .comment-item {
         display: flex;
-        justify-content: space-between; /* Space between comment text and delete button */
-        align-items: center; /* Center the content vertically */
+        justify-content: space-between;
+        align-items: center;
         padding: 5px 10px;
         background-color: #f4f4f4;
         border: 1px solid #ddd;
@@ -403,7 +401,7 @@
       }
 
       .comment-item span {
-        flex: 1; /* Allow the text to take up available space */
+        flex: 1;
         font-family: "Montserrat", sans-serif;
         font-size: 14px;
         color: #333;
@@ -443,8 +441,8 @@
       }
       .jar-lid1,
       .jar-lid2 {
-        width: 300px; /* Width of the jar top squares */
-        height: 20px; /* Height of the jar top squares */
+        width: 300px; 
+        height: 20px;
         border-radius: 10px;
         border: 2px solid #333;
       }
@@ -590,7 +588,7 @@
         flex-wrap: wrap;
         justify-content: center;
         position: absolute;
-        top: 80%; /* Adjust the position below the clicked date */
+        top: 80%;
         left: 0;
         right: 0;
         margin: auto;
@@ -676,7 +674,6 @@
       .footer-p {
         font-size: 15px;
       }
-
         </style>
     </head>
     <body>
@@ -839,49 +836,55 @@
                     <button id="prevMonth">⬅️</button>
                     <div class="month-dropdown">
                         <button id="currentMonth">January</button>
-                        <div class="month-list" id="monthList">
-                            <!-- Month buttons --></div>
+                        <div class="month-list" id="monthList"></div>
                     </div>
                     <button id="nextMonth">➡️</button>
                 </div>
                 <div class="calendar" id="calendar"></div>
-                <div class="summary">
-                    <!-- Mood summary bars --></div>
+                <div class="summary"></div>
                 <div class="emoji-popup" id="emojiPopup"></div>
                 <div class="overlay" id="overlay"></div>
             </section>
         </main>
         <footer>
-          <div class="some-icons-wrapper">
-            <a href="https://rikkejuliane.netlify.app/"><img src="https://github.com/user-attachments/assets/356200e4-fdb1-468c-96cb-5154c269b9d4" alt="Icon of world wide web" class="some-icons"></a>
-            <a href="https://www.linkedin.com/in/rikkejuliane/"><img src="https://github.com/user-attachments/assets/e774fd72-9760-45a1-9848-61a68fae1e56" alt="Icon for linkedin" class="some-icons"></a>
-            <a href="https://github.com/rikkejuliane"><img src="https://github.com/user-attachments/assets/e9222f43-5c63-450f-8e58-e40aaa8257d8" alt="Icon for github" class="some-icons"></a>
-            <a href="https://www.instagram.com/rikkejuliane/"><img src="https://github.com/user-attachments/assets/3d92a9f7-0ddd-4fc0-910a-181f5c0a3385" alt="icon for instagram" class="some-icons"></a>
-          </div>
+            <div class="some-icons-wrapper">
+                <a href="https://rikkejuliane.netlify.app/" target="_blank">
+                    <img src="https://github.com/user-attachments/assets/356200e4-fdb1-468c-96cb-5154c269b9d4" alt="Icon of world wide web" class="some-icons">
+                </a>
+                <a href="https://www.linkedin.com/in/rikkejuliane/" target="_blank">
+                    <img src="https://github.com/user-attachments/assets/e774fd72-9760-45a1-9848-61a68fae1e56" alt="Icon for linkedin" class="some-icons">
+                </a>
+                <a href="https://github.com/rikkejuliane" target="_blank">
+                    <img src="https://github.com/user-attachments/assets/e9222f43-5c63-450f-8e58-e40aaa8257d8" alt="Icon for github" class="some-icons">
+                </a>
+                <a href="https://www.instagram.com/rikkejuliane/" target="_blank">
+                    <img src="https://github.com/user-attachments/assets/3d92a9f7-0ddd-4fc0-910a-181f5c0a3385" alt="icon for instagram" class="some-icons">
+                </a>
+            </div>
             <div>
                 <p class="footer-text">
                     Icons made by
-                    <a href="https://www.flaticon.com/authors/kiranshastry" target="_blank title="Kiranshastry">
+                    <a href="https://www.flaticon.com/authors/kiranshastry" target="_blank" title="Kiranshastry">
                         Kiranshastry
                     </a>
                     ,
-                    <a href="https://www.flaticon.com/authors/mynamepong" target="_blank title="mynamepong">
+                    <a href="https://www.flaticon.com/authors/mynamepong" target="_blank" title="mynamepong">
                         mynamepong
                     </a>
                     ,
-                    <a href="https://www.freepik.com" target="_blank title="Freepik">Freepik</a>
+                    <a href="https://www.freepik.com" target="_blank" title="Freepik">Freepik</a>
                     ,
-                    <a href="https://www.flaticon.com/authors/mikan933" target="_blank title="mikan933">
+                    <a href="https://www.flaticon.com/authors/mikan933" target="_blank" title="mikan933">
                         mikan933
                     </a>
                     ,
-                    <a href="https://www.flaticon.com/authors/imaginationlol" target="_blank title="imaginationlol">
+                    <a href="https://www.flaticon.com/authors/imaginationlol" target="_blank" title="imaginationlol">
                         imaginationlol
                     </a>
                     ,
                     <a href="https://www.flaticon.com/authors/hight-quality-icons" title="Hight Quality Icons">Hight Quality Icons</a>
-                     from 
-                    <a href="https://www.flaticon.com/" target="_blank title="Flaticon">
+                    from
+                    <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">
                         www.flaticon.com
                     </p>
                 </a>
@@ -893,7 +896,6 @@
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
         if (window.scrollY > 100) {
-          // Adjust the scroll position
           header.classList.add("shrink");
         } else {
           header.classList.remove("shrink");
@@ -949,7 +951,7 @@
             book.remove();
             bookCount--;
             updateProgress();
-            saveBooks(); // Update localStorage after deletion
+            saveBooks(); 
           });
 
         tracker.appendChild(book);
@@ -971,15 +973,15 @@
         const cover = document.getElementById("bookCover").value;
 
         // Convert numeric rating to star icons
-        const starsCount = Math.min(5, Math.max(0, parseInt(starsInput, 10))); // Ensure between 0-5
+        const starsCount = Math.min(5, Math.max(0, parseInt(starsInput, 10)));
         const stars = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
 
         const book = { title, stars, comment, cover };
         addBookToDOM(book);
         bookCount++;
         updateProgress();
-        saveBooks(); // Save the updated list to localStorage
-        addBookForm.reset(); // Clear the form
+        saveBooks(); 
+        addBookForm.reset(); 
       });
 
       // Initialize tracker
@@ -987,8 +989,8 @@
 
       // Workout tracker functionality
       const workoutTracker = document.getElementById("workoutTracker");
-      const totalCards = 100; // 10x10 grid
-      let flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || {}; // Load flipped state
+      const totalCards = 100;
+      let flippedCards = JSON.parse(localStorage.getItem("flippedCards")) || {}; 
 
       // Function to generate random gradient
       function getRandomGradient() {
@@ -1020,16 +1022,16 @@
         // Add click event to flip card
         card.addEventListener("click", () => {
           if (!card.classList.contains("flipped")) {
-            const gradient = getRandomGradient(); // Generate a random gradient
+            const gradient = getRandomGradient();
             card.classList.add("flipped");
-            card.style.background = gradient; // Apply the gradient
-            card.textContent = i; // Display the number
-            flippedCards[i] = { number: i, color: gradient }; // Save number and color
+            card.style.background = gradient; 
+            card.textContent = i; 
+            flippedCards[i] = { number: i, color: gradient }; 
           } else {
             card.classList.remove("flipped");
-            card.style.background = ""; // Reset to default background
-            card.textContent = ""; // Reset the card
-            delete flippedCards[i]; // Remove from flippedCards
+            card.style.background = ""; 
+            card.textContent = ""; 
+            delete flippedCards[i]; 
           }
 
           // Save flipped state to localStorage
@@ -1047,10 +1049,10 @@
 
       // Function to render comments
       function renderComments() {
-        commentList.innerHTML = ""; // Clear the list first
+        commentList.innerHTML = ""; 
         comments.forEach((comment, index) => {
           const li = document.createElement("li");
-          li.classList.add("comment-item"); // Add a class for styling
+          li.classList.add("comment-item"); 
 
           // Create a span for the comment text
           const commentText = document.createElement("span");
@@ -1062,7 +1064,6 @@
           deleteButton.textContent = "X";
           deleteButton.setAttribute("aria-label", "Delete Comment");
           deleteButton.addEventListener("click", () => {
-            // Remove the comment from the array
             comments.splice(index, 1);
 
             // Update localStorage
@@ -1072,24 +1073,23 @@
             renderComments();
           });
 
-          li.appendChild(commentText); // Add the comment text to the list item
-          li.appendChild(deleteButton); // Add the delete button to the list item
+          li.appendChild(commentText); 
+          li.appendChild(deleteButton); 
           commentList.appendChild(li);
         });
       }
 
       // Event listener for adding comments
       submitComment.addEventListener("click", () => {
-        const comment = commentInput.value.trim(); // Get the input value and trim whitespace
+        const comment = commentInput.value.trim();
         if (comment) {
-          comments.push(comment); // Add comment to the array
-          localStorage.setItem("comments", JSON.stringify(comments)); // Save updated comments to localStorage
-          commentInput.value = ""; // Clear the input field
-          renderComments(); // Re-render the comment list
+          comments.push(comment);
+          localStorage.setItem("comments", JSON.stringify(comments));
+          commentInput.value = "";
+          renderComments();
         }
       });
 
-      // Initial rendering of comments from localStorage
       renderComments();
 
       // No spend tracker
@@ -1118,7 +1118,7 @@
         }
       });
 
-      // Save to localStorage and update the UI
+      // Save to localStorage and update UI
       function saveAndUpdate() {
         localStorage.setItem("noSpendCount", count);
         updateUI();
@@ -1226,7 +1226,7 @@
 
           const emojiPicker = document.createElement("div");
           emojiPicker.classList.add("emoji-picker");
-          emojiPicker.style.display = "none"; // Initially hidden
+          emojiPicker.style.display = "none";
 
           // Add emoji options to the picker
           emojis.forEach((emojiOption) => {
