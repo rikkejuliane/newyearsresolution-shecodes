@@ -293,7 +293,7 @@
       }
 
       /* Workout */
-      .workout-p, 
+      .workout-p,
       .nospend-p,
       .moodtracker-p {
         display: flex;
@@ -439,14 +439,14 @@
       .counter {
         font-size: 3rem;
         font-weight: bold;
-        font-family: 'limelight', cursive;
+        font-family: "limelight", cursive;
       }
       .jar-lid1,
       .jar-lid2 {
         width: 300px; /* Width of the jar top squares */
-    height: 20px; /* Height of the jar top squares */
-    border-radius: 10px;
-    border: 2px solid #333;
+        height: 20px; /* Height of the jar top squares */
+        border-radius: 10px;
+        border: 2px solid #333;
       }
 
       .jar {
@@ -489,172 +489,193 @@
       }
 
       .calendar-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
 
-        .calendar-header button {
-            background: transparent;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+      .calendar-header button {
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
 
-        .month-dropdown {
-            position: relative;
-        }
+      .month-dropdown {
+        position: relative;
+      }
 
-        .month-dropdown button {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
+      .month-dropdown button {
+        font-size: 1.2rem;
+        font-family: 'limelight', cursive;
+        font-weight: bold;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
 
-        .month-dropdown button:after {
-            content: " ▼";
-            font-size: 1rem;
-        }
+      .month-dropdown button:after {
+        content: " ▼";
+        font-size: 1rem;
+      }
 
-        .month-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
+      .month-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
 
-        .month-list.active {
-            display: block;
-        }
+      .month-list.active {
+        display: block;
+      }
 
-        .month-list button {
-            display: block;
-            width: 100%;
-            padding: 5px 10px;
-            text-align: left;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
+      .month-list button {
+        display: block;
+        width: 100%;
+        padding: 5px 10px;
+        text-align: left;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
 
-        .month-list button:hover {
-            background: #f0f0f0;
-        }
+      .month-list button:hover {
+        background: #f0f0f0;
+      }
 
-        /* Calendar Grid */
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            max-width: 500px;
-            margin-bottom: 20px;
-        }
+      /* Calendar Grid */
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        max-width: 500px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+      }
 
-        .day {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            border: 1px solid #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
+      .day {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
 
-        .day .date {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 0.8rem;
-            color: #555;
-        }
+      .day .date {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-size: 0.8rem;
+        color: #555;
+      }
 
-        .day .emoji {
-            font-size: 1.5rem;
-        }
+      .day .emoji {
+        font-size: 1.5rem;
+      }
 
-        /* Emoji Popup */
-        .emoji-popup {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 20;
-        }
+      /* Emoji Popup */
+      .emoji-picker {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: absolute;
+        top: 80%; /* Adjust the position below the clicked date */
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
 
-        .emoji-popup.active {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+      .emoji-picker span {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
 
-        .emoji-popup span {
-            font-size: 2rem;
-            cursor: pointer;
-        }
+      .emoji-picker span:hover {
+        transform: scale(1.2);
+      }
 
-        .emoji-popup span:hover {
-            transform: scale(1.2);
-        }
+      /* Yearly Mood Summary */
+      .summary {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-        /* Overlay */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 15;
-        }
+      .summary-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
 
-        .overlay.active {
-            display: block;
-        }
+      .summary-bar {
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 100px;
+        position: relative;
+      }
 
-        /* Yearly Mood Summary */
-        .summary {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+      .summary-bar div {
+        height: 100%;
+        border-radius: 5px;
+      }
 
-        .summary-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+      /* Footer */
+      footer {
+        background: radial-gradient(#000, #333);
+        color: #fff;
+        padding: 20px 0;
+        text-align: center; 
+      }
 
-        .summary-bar {
-            height: 10px;
-            background: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 100px;
-            position: relative;
-        }
+      .some-icons-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin: 10px 0;
+      }
 
-        .summary-bar div {
-            height: 100%;
-            border-radius: 5px;
-        }
+      .some-icons {
+        height: 40px;
+        width: 40px;
+      }
+
+      .footer-text {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        margin: 30px 0px;
+      } 
+
+      .footer-text a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .footer-p {
+        font-size: 15px;
+      }
 
         </style>
     </head>
@@ -783,7 +804,13 @@
             </section>
             <section id="nospend-section-wrapper">
                 <h2>Goal 3: Spend less money</h2>
-                <p class="nospend-p">This year, I want to focus on spending less and appreciating the value of what I already have. Instead of buying everything I want right away, I want to embrace the excitement of wishing for things, saving up, and making thoughtful decisions. I hope to build better habits and find joy in simplicity.</p>
+                <p class="nospend-p">
+                    This year, I want to focus on spending less and appreciating the value
+          of what I already have. Instead of buying everything I want right
+          away, I want to embrace the excitement of wishing for things, saving
+          up, and making thoughtful decisions. I hope to build better habits and
+          find joy in simplicity.
+                </p>
                 <div class="tracker-container">
                     <div class="arrows">
                         <div class="arrow" id="upArrow">&#8593;</div>
@@ -791,71 +818,75 @@
                         <div class="arrow" id="downArrow">&#8595;</div>
                     </div>
                     <div>
-                    <div class="jar-lid1"></div>
-                      <div class="jar-lid2"></div>
-                    <div class="jar">
-                        <div class="fill" id="fill"></div>
+                        <div class="jar-lid1"></div>
+                        <div class="jar-lid2"></div>
+                        <div class="jar">
+                            <div class="fill" id="fill"></div>
+                        </div>
                     </div>
                 </div>
-              </div>
                 <div class="message" id="message"></div>
             </section>
             <section class="moodtracker-wrapper">
-              <h2>Goal 4: Mood tracker</h2>
-              <p class="moodtracker-p">I want to be more aware of my emotional well-being this year, so I’m introducing a daily mood tracker. By regularly checking in with myself, I can spot patterns, and take timely action to stay balanced and mentally healthy.</p>
-              <div class="calendar-header">
-                <button id="prevMonth">⬅️</button>
-                <div class="month-dropdown">
-                    <button id="currentMonth">January</button>
-                    <div class="month-list" id="monthList">
-                        <!-- Month buttons -->
+                <h2>Goal 4: Mood tracker</h2>
+                <p class="moodtracker-p">
+                    I want to be more aware of my emotional well-being this year, so I’m
+          introducing a daily mood tracker. By regularly checking in with
+          myself, I can spot patterns, and take timely action to stay balanced
+          and mentally healthy.
+                </p>
+                <div class="calendar-header">
+                    <button id="prevMonth">⬅️</button>
+                    <div class="month-dropdown">
+                        <button id="currentMonth">January</button>
+                        <div class="month-list" id="monthList">
+                            <!-- Month buttons --></div>
                     </div>
+                    <button id="nextMonth">➡️</button>
                 </div>
-                <button id="nextMonth">➡️</button>
-            </div>
-        
-            <div class="calendar" id="calendar"></div>
-        
-            <div class="summary">
-                <!-- Mood summary bars -->
-            </div>
-        
-            <div class="emoji-popup" id="emojiPopup">
-                <span>😊</span>
-                <span>😁</span>
-                <span>🤪</span>
-                <span>😴</span>
-                <span>😢</span>
-                <span>😡</span>
-            </div>
-            <div class="overlay" id="overlay"></div>
+                <div class="calendar" id="calendar"></div>
+                <div class="summary">
+                    <!-- Mood summary bars --></div>
+                <div class="emoji-popup" id="emojiPopup"></div>
+                <div class="overlay" id="overlay"></div>
             </section>
         </main>
         <footer>
+          <div class="some-icons-wrapper">
+            <a href="https://rikkejuliane.netlify.app/"><img src="https://github.com/user-attachments/assets/356200e4-fdb1-468c-96cb-5154c269b9d4" alt="Icon of world wide web" class="some-icons"></a>
+            <a href="https://www.linkedin.com/in/rikkejuliane/"><img src="https://github.com/user-attachments/assets/e774fd72-9760-45a1-9848-61a68fae1e56" alt="Icon for linkedin" class="some-icons"></a>
+            <a href="https://github.com/rikkejuliane"><img src="https://github.com/user-attachments/assets/e9222f43-5c63-450f-8e58-e40aaa8257d8" alt="Icon for github" class="some-icons"></a>
+            <a href="https://www.instagram.com/rikkejuliane/"><img src="https://github.com/user-attachments/assets/3d92a9f7-0ddd-4fc0-910a-181f5c0a3385" alt="icon for instagram" class="some-icons"></a>
+          </div>
             <div>
-                Icons made by
-                <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">
-                    Kiranshastry
-                </a>
-                ,
-                <a href="https://www.flaticon.com/authors/mynamepong" title="mynamepong">
-                    mynamepong
-                </a>
-                ,
-                <a href="https://www.freepik.com" title="Freepik">Freepik</a>
-                ,
-                <a href="https://www.flaticon.com/authors/mikan933" title="mikan933">
-                    mikan933
-                </a>
-                ,
-                <a href="https://www.flaticon.com/authors/imaginationlol" title="imaginationlol">
-                    imaginationlol
-                </a>
-                from
-                <a href="https://www.flaticon.com/" title="Flaticon">
-                    www.flaticon.com
+                <p class="footer-text">
+                    Icons made by
+                    <a href="https://www.flaticon.com/authors/kiranshastry" target="_blank title="Kiranshastry">
+                        Kiranshastry
+                    </a>
+                    ,
+                    <a href="https://www.flaticon.com/authors/mynamepong" target="_blank title="mynamepong">
+                        mynamepong
+                    </a>
+                    ,
+                    <a href="https://www.freepik.com" target="_blank title="Freepik">Freepik</a>
+                    ,
+                    <a href="https://www.flaticon.com/authors/mikan933" target="_blank title="mikan933">
+                        mikan933
+                    </a>
+                    ,
+                    <a href="https://www.flaticon.com/authors/imaginationlol" target="_blank title="imaginationlol">
+                        imaginationlol
+                    </a>
+                    ,
+                    <a href="https://www.flaticon.com/authors/hight-quality-icons" title="Hight Quality Icons">Hight Quality Icons</a>
+                     from 
+                    <a href="https://www.flaticon.com/" target="_blank title="Flaticon">
+                        www.flaticon.com
+                    </p>
                 </a>
             </div>
+            <p class="footer-p">© 2025 by Rikke Juliane. All Rights Reserved.</p>
         </footer>
         <script>
       // Handle the header shrink effect
@@ -1087,7 +1118,6 @@
         }
       });
 
-
       // Save to localStorage and update the UI
       function saveAndUpdate() {
         localStorage.setItem("noSpendCount", count);
@@ -1113,155 +1143,174 @@
 
       // Mood tracker
       const calendar = document.getElementById("calendar");
-        const currentMonthBtn = document.getElementById("currentMonth");
-        const monthList = document.getElementById("monthList");
-        const prevMonthBtn = document.getElementById("prevMonth");
-        const nextMonthBtn = document.getElementById("nextMonth");
-        const emojiPopup = document.getElementById("emojiPopup");
-        const overlay = document.getElementById("overlay");
-        const summary = document.querySelector(".summary");
+      const currentMonthBtn = document.getElementById("currentMonth");
+      const monthList = document.getElementById("monthList");
+      const prevMonthBtn = document.getElementById("prevMonth");
+      const nextMonthBtn = document.getElementById("nextMonth");
+      const summary = document.querySelector(".summary");
 
-        let currentMonth = new Date().getMonth();
-        let selectedYear = 2025;
-        const moods = JSON.parse(localStorage.getItem("moods")) || {};
+      let currentMonth = new Date().getMonth();
+      let selectedYear = 2025;
+      const moods = JSON.parse(localStorage.getItem("moods")) || {};
 
-        // Month names
-        const monthNames = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        ];
+      // Month names
+      const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
 
-        // Emojis
-        const emojis = ["😊", "😁", "🤪", "😴", "😢", "😡"];
+      // Emojis
+      const emojis = ["😊", "😁", "🤪", "😴", "😢", "😡"];
 
-        // Create month dropdown
-        monthNames.forEach((month, index) => {
-            const button = document.createElement("button");
-            button.textContent = month;
-            button.addEventListener("click", () => {
-                currentMonth = index;
-                updateCalendar();
-                monthList.classList.remove("active");
-            });
-            monthList.appendChild(button);
+      // Create month dropdown
+      monthNames.forEach((month, index) => {
+        const button = document.createElement("button");
+        button.textContent = month;
+        button.addEventListener("click", () => {
+          currentMonth = index;
+          updateCalendar();
+          monthList.classList.remove("active");
         });
+        monthList.appendChild(button);
+      });
 
-        // Navigation
-        prevMonthBtn.addEventListener("click", () => {
-            if (currentMonth > 0) currentMonth--;
-            else currentMonth = 11;
-            updateCalendar();
-        });
-
-        nextMonthBtn.addEventListener("click", () => {
-            if (currentMonth < 11) currentMonth++;
-            else currentMonth = 0;
-            updateCalendar();
-        });
-
-        currentMonthBtn.addEventListener("click", () => {
-            monthList.classList.toggle("active");
-        });
-
-        // Overlay click
-        overlay.addEventListener("click", () => {
-            emojiPopup.classList.remove("active");
-            overlay.classList.remove("active");
-        });
-
-        // Update calendar
-        function updateCalendar() {
-            calendar.innerHTML = "";
-            currentMonthBtn.textContent = monthNames[currentMonth];
-            const daysInMonth = new Date(selectedYear, currentMonth + 1, 0).getDate();
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const cell = document.createElement("div");
-                cell.classList.add("day");
-
-                const date = document.createElement("div");
-                date.classList.add("date");
-                date.textContent = day;
-
-                const emoji = document.createElement("div");
-                emoji.classList.add("emoji");
-                emoji.textContent = moods[`${selectedYear}-${currentMonth}-${day}`] || "";
-
-                cell.appendChild(date);
-                cell.appendChild(emoji);
-
-                // Emoji picker popup
-                cell.addEventListener("click", () => {
-                    emojiPopup.classList.add("active");
-                    overlay.classList.add("active");
-
-                    emojiPopup.querySelectorAll("span").forEach((emojiSpan) => {
-                        emojiSpan.onclick = () => {
-                            moods[`${selectedYear}-${currentMonth}-${day}`] = emojiSpan.textContent;
-                            localStorage.setItem("moods", JSON.stringify(moods));
-                            updateCalendar();
-                            emojiPopup.classList.remove("active");
-                            overlay.classList.remove("active");
-                        };
-                    });
-                });
-
-                calendar.appendChild(cell);
-            }
-
-            updateSummary();
-        }
-
-        // Update mood summary
-        function updateSummary() {
-            summary.innerHTML = "";
-            const moodCounts = emojis.reduce((acc, emoji) => {
-                acc[emoji] = Object.values(moods).filter((mood) => mood === emoji).length;
-                return acc;
-            }, {});
-
-            const totalDays = Object.values(moods).length;
-
-            emojis.forEach((emoji) => {
-                const percentage = totalDays ? Math.round((moodCounts[emoji] / totalDays) * 100) : 0;
-
-                const summaryItem = document.createElement("div");
-                summaryItem.classList.add("summary-item");
-
-                const emojiSpan = document.createElement("span");
-                emojiSpan.textContent = emoji;
-
-                const bar = document.createElement("div");
-                bar.classList.add("summary-bar");
-
-                const fill = document.createElement("div");
-                fill.style.width = `${percentage}%`;
-                fill.style.background = "#4caf50";
-
-                bar.appendChild(fill);
-                summaryItem.appendChild(emojiSpan);
-                summaryItem.appendChild(bar);
-
-                const percentageSpan = document.createElement("span");
-                percentageSpan.textContent = `${percentage}%`;
-
-                summaryItem.appendChild(percentageSpan);
-                summary.appendChild(summaryItem);
-            });
-        }
-
-        // Initial render
+      // Navigation
+      prevMonthBtn.addEventListener("click", () => {
+        if (currentMonth > 0) currentMonth--;
+        else currentMonth = 11;
         updateCalendar();
+      });
+
+      nextMonthBtn.addEventListener("click", () => {
+        if (currentMonth < 11) currentMonth++;
+        else currentMonth = 0;
+        updateCalendar();
+      });
+
+      currentMonthBtn.addEventListener("click", () => {
+        monthList.classList.toggle("active");
+      });
+
+      // Update calendar
+      function updateCalendar() {
+        calendar.innerHTML = "";
+        currentMonthBtn.textContent = monthNames[currentMonth];
+        const daysInMonth = new Date(
+          selectedYear,
+          currentMonth + 1,
+          0
+        ).getDate();
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const cell = document.createElement("div");
+          cell.classList.add("day");
+
+          const date = document.createElement("div");
+          date.classList.add("date");
+          date.textContent = day;
+
+          const emoji = document.createElement("div");
+          emoji.classList.add("emoji");
+          emoji.textContent =
+            moods[`${selectedYear}-${currentMonth}-${day}`] || "";
+
+          const emojiPicker = document.createElement("div");
+          emojiPicker.classList.add("emoji-picker");
+          emojiPicker.style.display = "none"; // Initially hidden
+
+          // Add emoji options to the picker
+          emojis.forEach((emojiOption) => {
+            const emojiSpan = document.createElement("span");
+            emojiSpan.textContent = emojiOption;
+
+            // When an emoji is clicked, save it to moods and update the UI
+            emojiSpan.addEventListener("click", () => {
+              moods[`${selectedYear}-${currentMonth}-${day}`] = emojiOption;
+              localStorage.setItem("moods", JSON.stringify(moods));
+
+              // Update calendar and hide the picker
+              updateCalendar();
+              emojiPicker.style.display = "none";
+            });
+
+            emojiPicker.appendChild(emojiSpan);
+          });
+
+          // Toggle emoji picker visibility on date click
+          cell.addEventListener("click", () => {
+            // Hide all other emoji pickers
+            document.querySelectorAll(".emoji-picker").forEach((picker) => {
+              picker.style.display = "none";
+            });
+
+            // Toggle visibility of the current emoji picker
+            emojiPicker.style.display =
+              emojiPicker.style.display === "none" ? "flex" : "none";
+          });
+
+          cell.appendChild(date);
+          cell.appendChild(emoji);
+          cell.appendChild(emojiPicker);
+          calendar.appendChild(cell);
+        }
+
+        updateSummary();
+      }
+
+      // Update mood summary
+      function updateSummary() {
+        summary.innerHTML = "";
+        const moodCounts = emojis.reduce((acc, emoji) => {
+          acc[emoji] = Object.values(moods).filter(
+            (mood) => mood === emoji
+          ).length;
+          return acc;
+        }, {});
+
+        const totalDays = Object.values(moods).length;
+
+        emojis.forEach((emoji) => {
+          const percentage = totalDays
+            ? Math.round((moodCounts[emoji] / totalDays) * 100)
+            : 0;
+
+          const summaryItem = document.createElement("div");
+          summaryItem.classList.add("summary-item");
+
+          const emojiSpan = document.createElement("span");
+          emojiSpan.textContent = emoji;
+
+          const bar = document.createElement("div");
+          bar.classList.add("summary-bar");
+
+          const fill = document.createElement("div");
+          fill.style.width = `${percentage}%`;
+          fill.style.background = "#4caf50";
+
+          bar.appendChild(fill);
+          summaryItem.appendChild(emojiSpan);
+          summaryItem.appendChild(bar);
+
+          const percentageSpan = document.createElement("span");
+          percentageSpan.textContent = `${percentage}%`;
+
+          summaryItem.appendChild(percentageSpan);
+          summary.appendChild(summaryItem);
+        });
+      }
+
+      // Initial render
+      updateCalendar();
         </script>
     </body>
 </html>
