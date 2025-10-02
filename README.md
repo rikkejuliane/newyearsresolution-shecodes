@@ -1,4 +1,4 @@
-#New Year’s Resolutions Tracker — SheCodes.io Challenge 
+# New Year’s Resolutions Tracker — SheCodes.io Challenge 
 
 ## Tech stack:  
 - HTML, CSS, JavaScript (single file)  
